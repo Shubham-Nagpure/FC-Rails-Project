@@ -28,25 +28,25 @@ class JobApplication < ApplicationRecord
 
 
   # METHODS
-  def accepted?
-    status == :accepted
-  end
+  # def accepted?
+  #   status == :accepted
+  # end
 
-  def rejected?
-    status == :rejected
-  end
+  # def rejected?
+  #   status == :rejected
+  # end
 
-  def applied?
-    status == :applied
-  end
+  # def applied?
+  #   status == :applied
+  # end
 
-  def accepted!
-    self.status = :accepted
-    save
-  end
+  # def accepted!
+  #   self.status = :accepted
+  #   save
+  # end
 
-  def rejected!
-    self.status = :rejected
-    save
-  end
+  # def rejected!
+  #   self.status = :rejected
+  #   save
+  # end
 end

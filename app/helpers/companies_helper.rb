@@ -8,6 +8,6 @@ module CompaniesHelper
   end
 
   def job_options
-    Job.all.map { |job| [ job.title, job.id ] }
+    Job.all.map { |job| [ "#{job.title}-#{job.company.name}", job.id ] }
   end
 end

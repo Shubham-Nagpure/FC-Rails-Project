@@ -20,23 +20,21 @@ class User < ApplicationRecord
   scope :female, -> { where(gender: :Female) }
 
   # CALLBACKS
-  before_save :format_email
   before_save :format_name
-  # before_validation :convert_gender_to_integer
-  # before_create :convert_gender_to_integer
+  before_validation :gender_downcase
+  after_create :send_mail
 
   # ASSOCIATIONS
-  has_many :job, through: :job_applications
   has_many :job_applications
+  has_many :jobs, through: :job_applications
 
   # METHODS
-  # def convert_gender_to_integer
-  #   debugger
-  #   self.gender = gender.to_i if gender.present?
-  # end
+  def gender_downcase
+    self.gender = gender.downcase if gender.present?
+  end
 
-  def format_email
-    email.downcase!
+  def send_mail
+    puts "**************** Sending Registration Mail to User *********************"
   end
 
   def format_name

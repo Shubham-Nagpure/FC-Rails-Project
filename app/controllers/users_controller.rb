@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ show edit update destroy job_applications]
 
   # GET /users or /users.json
   def index
@@ -55,6 +55,10 @@ class UsersController < ApplicationController
       format.html { redirect_to users_path, status: :see_other, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def job_applications
+    @job_applications = @user.job_applications
   end
 
   private
