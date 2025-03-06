@@ -23,7 +23,7 @@ class Job < ApplicationRecord
 
   # ASSOCIATIONS
   belongs_to :company
-  has_many :job_applications
+  has_many :job_applications, dependent: :destroy
 
   # SCOPES
   scope :open, -> { where(status: :open) }

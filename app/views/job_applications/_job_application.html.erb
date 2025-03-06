@@ -9,10 +9,14 @@
   </div>
   <div>
     <strong class="block font-medium mb-1">Job:</strong>
-    <%= job_application.job_id %>
+    <%= job_application.job.title %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Company:</strong>
+    <%= job_application.job.company.name %>
   </div>
   <div>
     <strong class="block font-medium mb-1">User:</strong>
-    <%= job_application.user_id %>
+    <%= job_application.user.name %>
   </div>
 </div>

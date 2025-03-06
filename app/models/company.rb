@@ -24,7 +24,7 @@ class Company < ApplicationRecord
   validates :industry, inclusion: { in: INDUSTRY.keys.to_s, message: "is not a valid industry" }
 
   # ASSOCIATIONS
-  has_many :jobs
+  has_many :jobs, dependent: :destroy
 
   # METHODS
   def format_name
