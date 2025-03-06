@@ -1,11 +1,11 @@
 <div id="<%= dom_id job_application %>" class="w-full sm:w-auto my-5 space-y-5">
   <div>
     <strong class="block font-medium mb-1">Status:</strong>
-    <%= job_application.status %>
+    <%= job_application.status.capitalize %>
   </div>
   <div>
     <strong class="block font-medium mb-1">Applied on:</strong>
-    <%= job_application.applied_on %>
+    <%= format_date(job_application.applied_on) %>
   </div>
   <div>
     <strong class="block font-medium mb-1">Job:</strong>
