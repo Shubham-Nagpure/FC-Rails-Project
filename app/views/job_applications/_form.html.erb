@@ -1,0 +1,37 @@
+<%= form_with(model: job_application, class: "contents") do |form| %>
+  <% if job_application.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+      <h2><%= pluralize(job_application.errors.count, "error") %> prohibited this job_application from being saved:</h2>
+
+      <ul class="list-disc ml-6">
+        <% job_application.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :status %>
+    <%= form.select :status, status_options, {}, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": job_application.errors[:status].none?, "border-red-400 focus:outline-red-600": job_application.errors[:status].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :applied_on %>
+    <%= form.datetime_field :applied_on, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": job_application.errors[:applied_on].none?, "border-red-400 focus:outline-red-600": job_application.errors[:applied_on].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :job_id %>
+    <%= form.select :job_id, job_options, {}, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": job_application.errors[:job_id].none?, "border-red-400 focus:outline-red-600": job_application.errors[:job_id].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :user_id %>
+    <%= form.select :user_id, user_options, {}, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": job_application.errors[:user_id].none?, "border-red-400 focus:outline-red-600": job_application.errors[:user_id].any?}] %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>
