@@ -11,9 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2025_03_06_061554) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.integer "industry"
@@ -24,8 +21,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_06_061554) do
   create_table "job_applications", force: :cascade do |t|
     t.integer "status"
     t.datetime "applied_on"
-    t.bigint "job_id", null: false
-    t.bigint "user_id", null: false
+    t.integer "job_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["job_id"], name: "index_job_applications_on_job_id"
@@ -36,7 +33,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_06_061554) do
     t.string "title"
     t.text "description"
     t.string "location"
-    t.bigint "company_id", null: false
+    t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status"
